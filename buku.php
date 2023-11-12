@@ -25,7 +25,7 @@ include 'koneksi.php';
 	</thead>
 	<tbody>
 		<?php
-		//Query Menampilkan data pada tabel anggota
+		//Query Menampilkan data pada tabel buku
 		$query = mysqli_query($koneksi, "SELECT * FROM buku");
 	
 		//Menampilkan data tiap baris
