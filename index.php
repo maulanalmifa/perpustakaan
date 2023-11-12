@@ -20,7 +20,16 @@
 		<td>Harus Kembali pada</td>
 	</thead>
 	<tbody>
-		
+		<?php
+		$query = mysqli_query($koneksi, "SELECT * FROM pinjam");
+		while ($data = mysqli_fetch_array($query)){ ?>
+			<tr>
+				<td><?php echo $data['no_buku']; ?></td>
+				<td><?php echo $data['no_anggota']; ?></td>
+				<td><?php echo $data['tgl_pinjam']; ?></td>
+				<td><?php echo $data['tgl_kembali']; ?></td>
+			</tr>
+		<?php } ?>
 	</tbody>
 </table>
 </body>
