@@ -1,3 +1,6 @@
+<?php
+include 'koneksi.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,12 +10,12 @@
 </head>
 <body>
 <h1>Dashboard</h1>
-<a href="peminjaman.php">Peminjaman</a>
-<a href="anggota.php">Data Anggota</a>
+<a href="peminjaman.php">Peminjaman Kilat</a><br>
+<a href="anggota.php">Data Anggota</a><br>
 <a href="buku.php">Buku</a>
 
-<h6>Daftar Peminjaman</h6>
-<table>
+<h2>Daftar Peminjaman</h2>
+<table border="1", cellpadding="4">
 	<thead>
 		<td>Kode Buku</td>
 		<td>Peminjam</td>
