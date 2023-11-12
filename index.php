@@ -17,20 +17,24 @@ include 'koneksi.php';
 <h2>Daftar Peminjaman</h2>
 <table border="1", cellpadding="4">
 	<thead>
-		<td>Kode Buku</td>
+		<td>Judul</td>
 		<td>Peminjam</td>
 		<td>Tanggal Pinjam</td>
 		<td>Harus Kembali pada</td>
 	</thead>
 	<tbody>
 		<?php
-		$query = mysqli_query($koneksi, "SELECT * FROM pinjam");
+		//Query Menggabungkan Tabel Peminjaman, Tabel Anggota dan Tabel Buku
+		$query = mysqli_query($koneksi, "SELECT * FROM pinjam LEFT JOIN anggota ON pinjam.no_anggota = anggota.no_anggota LEFT JOIN buku ON pinjam.no_buku = buku.no_buku");
+
+		//Menampilkan data tiap baris
 		while ($data = mysqli_fetch_array($query)){ ?>
 			<tr>
-				<td><?php echo $data['no_buku']; ?></td>
-				<td><?php echo $data['no_anggota']; ?></td>
+				<td><?php echo $data['judul']; ?></td>
+				<td><?php echo $data['nama']; ?></td>
 				<td><?php echo $data['tgl_pinjam']; ?></td>
 				<td><?php echo $data['tgl_kembali']; ?></td>
+				<td><a href="pengembalian.php?id=<?php echo $data['kode_pinjam']; ?>">Telah Dikembalikan</a></td>
 			</tr>
 		<?php } ?>
 	</tbody>
